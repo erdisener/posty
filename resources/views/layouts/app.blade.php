@@ -18,7 +18,7 @@
                 <a href=" {{route('dashboard')}} " class="p-3">Profil</a>
             </li>
             <li>
-                <a href="#" class="p-3">Gönderi</a>
+                <a href=" {{ route('posts') }} " class="p-3">Gönderi</a>
             </li>
         </ul>
         <ul class="flex items-center">
