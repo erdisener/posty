@@ -12,28 +12,40 @@
     <nav class="p-6 bg-white flex justify-between mb-6">
         <ul class="flex items-center">
             <li>
-                <a href="#" class="p-3">Ana Sayfa</a>
+                <a href="/" class="p-3">Ana Sayfa</a>
             </li>
             <li>
-                <a href="#" class="p-3">Profil</a>
+                <a href=" {{route('dashboard')}} " class="p-3">Profil</a>
             </li>
             <li>
                 <a href="#" class="p-3">Gönderi</a>
             </li>
         </ul>
         <ul class="flex items-center">
-            <li>
-                <a href="#" class="p-3">Erdi</a>
-            </li>
-            <li>
-                <a href="#" class="p-3">Giriş</a>
-            </li>
-            <li>
-                <a href="{{ route('register') }}" class="p-3">Kayıt</a>
-            </li>
-            <li>
-                <a href="#" class="p-3">Çıkış</a>
-            </li>
+            @auth
+                <li>
+                    <a href="#" class="p-3">Erdi</a>
+                </li>
+                <li>
+                    <form action=" {{route('logout')}} " method="post" class="p-3 inline">
+                    @csrf
+                    <button type="submit">Çıkış</button>
+                    </form>
+                </li>
+            @endauth
+            
+            @guest  
+                <li>
+                    <a href=" {{route('login')}} " class="p-3">Giriş</a>
+                </li>
+                <li>
+                    <a href="{{ route('register') }}" class="p-3">Kayıt</a>
+                </li>
+            @endguest
+           
+            
+           
+           
         </ul>
     </nav>
 
